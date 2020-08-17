@@ -55,7 +55,7 @@ public class PatientRatingsVeiwer extends Page{
         return output;
     }
     
-    protected void update(){
+    private void update(){
         int Y = 50;
         frame.setSize(500, 500);
         for(Rating r : ratings){

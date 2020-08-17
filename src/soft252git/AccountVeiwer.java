@@ -12,10 +12,10 @@ import java.awt.event.*;
  * @author dillonlaskey
  */
 public class AccountVeiwer extends Page{
-    JButton Cancel;
-    JButton[] buttons;
-    JPanel panel1,panel2;
-    User[] users;
+    private JButton Cancel;
+    private JButton[] buttons;
+    private JPanel panel1,panel2;
+    private User[] users;
     AccountVeiwer(Data database,Page origin,User accessor){
         super("Staff accounts",database,origin,accessor);
         fetchUsers();

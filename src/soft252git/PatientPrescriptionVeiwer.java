@@ -47,7 +47,7 @@ public class PatientPrescriptionVeiwer extends Page{
         frame.setVisible(true);
     }
     
-    protected Prescription[] add(Prescription[] list, Prescription subject){
+    private Prescription[] add(Prescription[] list, Prescription subject){
         Prescription[] output = new Prescription[list.length + 1];
         int index = 0;
         for (Prescription line : list){

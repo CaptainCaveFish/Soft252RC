@@ -27,7 +27,7 @@ public class RatingsVeiwer extends Page{
         update();
     }
     
-    protected void update(){
+    private void update(){
         int Y = 50;
         for(Rating r : ratings){
             User d = searchDocs(r.getSubject());

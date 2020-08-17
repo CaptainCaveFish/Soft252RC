@@ -37,7 +37,7 @@ public class SecretaryHome extends Page{
         
         
     }
-    protected void update(){
+    private void update(){
         int Y = 20;
         requests = info.getRequests();
         frame.remove(panel1);

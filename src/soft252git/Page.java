@@ -46,6 +46,7 @@ public abstract class Page implements ActionListener{
     protected void setChild(Page target){
         child = target;
     }
+    
     @Override
     public void actionPerformed(ActionEvent ae){
         if (ae.getSource() == exit){

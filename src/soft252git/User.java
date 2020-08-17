@@ -12,7 +12,7 @@ package soft252git;
 public class User {
     private String fn,ln,t,p,ad,g;
     private int id,ag;
-    User(String firstName, String lastName,String address, String age, String gender, String type, String ID, String passWord){
+    User(String firstName, String lastName, String address, String age, String gender, String type, String ID, String passWord){
         fn = firstName;
         ln = lastName;
         t = type;

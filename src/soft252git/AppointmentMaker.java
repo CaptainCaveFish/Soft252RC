@@ -13,9 +13,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 public class AppointmentMaker extends Page{
-    JButton selectButton,cancelButton;
+    JButton cancelButton;
     JPanel panel1,panel2;
-    Integer[][] times;
+    Integer[][] ts;
     Appointment[] appointments;
     JButton[] selects;
     Integer index;
@@ -24,25 +24,26 @@ public class AppointmentMaker extends Page{
     int patient;
     AppointmentMaker(Data database,User accessor,Page origin,Request request){
         super("New Appointment",database,origin,accessor);
-        String times = request.getDetails().split("*")[0];
-        doctor = request.getDetails().split("*")[1];
+        String[] t = request.getDetails().split("@");
+        doctor = request.getDetails().split("@")[1];
         patient = request.getUserID();
-        startAndend = times.split("-");
+        startAndend = t[0].split("-");
         appointments = fetchAppointments(startAndend[0],startAndend[1]);
-        this.times = fetchTimes(appointments,startAndend[0],startAndend[1]);
+        ts = fetchTimes(appointments,startAndend[0],startAndend[1]);
         cancelButton = new JButton("Cancel");
         cancelButton.addActionListener(this);
+        panel1 = new JPanel(new GridLayout(0,5));
         panel1.add(cancelButton);
         frame.add(panel1,BorderLayout.SOUTH);
 
         panel2 = new JPanel(new GridLayout(0,5));
         selects = new JButton[0];
         
-        for(Integer[] time : this.times){
+        for(Integer[] time : ts){
             for(Integer item : time){
                 panel2.add(new JLabel(Integer.toString(item)));
             }
-            selectButton = new JButton("Select");
+            JButton selectButton = new JButton("Select");
             selects = addB(selects,selectButton);
             selectButton.addActionListener(this);
             panel2.add(selectButton);
@@ -115,73 +116,14 @@ public class AppointmentMaker extends Page{
     
     private int diff(Integer[] min, Integer[] max){
         int output = 0;
-        output += (max[3] - min[3])*2;
-        output += (max[2] - min[2])*48;
-        output += (max[1] - min[1])*1440;
+        output += (max[0] - min[0])*2;
+        output += (max[1] - min[1])*48;
+        output += (max[2] - min[2])*1440;
         output += (max[3] - min[3])*17280;
         return output;
     }
     
-    private String fetchTime(int[] date){
-        String output;
-        String hour = Integer.toString(date[3]/2) + ":" + Integer.toString((date[3]%2)*30);
-        output = hour + " ";
-        String day;
-        if(date[2] == 0){
-            day = "1st";
-        }
-        if(date[2] == 1){
-            day = "2nd";
-        }
-        if(date[2] == 2){
-            day = "3rd";
-        }
-        else{
-            day = Integer.toString(date[2]) + "th";
-        }
-        output = output + day + " ";
-        String month;
-        if(date[1] == 0){
-            month = "January";
-        }
-        else if(date[1] == 1){
-            month = "Febuary";
-        }
-        else if(date[1] == 2){
-            month = "March";
-        }
-        else if(date[1] == 3){
-            month = "April";
-        }
-        else if(date[1] == 4){
-            month = "May";
-        }
-        else if(date[1] == 5){
-            month = "June";
-        }
-        else if(date[1] == 6){
-            month = "July";
-        }
-        else if(date[1] == 7){
-            month = "August";
-        }
-        else if(date[1] == 8){
-            month = "September";
-        }
-        else if(date[1] == 9){
-            month = "October";
-        }
-        else if(date[1] == 10){
-            month = "November";
-        }
-        else{
-            month = "December";
-        }
-        output = output + month + " ";
-        output = output + Integer.toString(date[0]);
-        return output;
-    }
-    
+        
     private Integer[][] fetchTimes(Appointment[] priors, String minTime, String maxTime){
         Integer[][] output = {};
         Integer[] min = toInt(minTime) ,max = toInt(maxTime),current = min;
@@ -220,7 +162,7 @@ public class AppointmentMaker extends Page{
         for(JButton sButton : selects){
             index += 1;
             if(ae.getSource() == sButton){
-                Integer[] newTime = this.times[index];
+                Integer[] newTime = ts[index];
                 Appointment newAppointment = new Appointment(Integer.toString(patient),doctor,Integer.toString(newTime[0]),Integer.toString(newTime[1]),Integer.toString(newTime[2]),Integer.toString(newTime[3]));
                 info.addAppointment(newAppointment);
             }

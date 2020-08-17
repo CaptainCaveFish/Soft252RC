@@ -98,7 +98,7 @@ public class DoctorAppointmentsVeiwer extends Page{
     }
     
     
-    protected void update(){
+    private void update(){
         int Y = 50;
         for(Appointment a : appointments){
             User patient = info.searchUsers(a.getPatient());
