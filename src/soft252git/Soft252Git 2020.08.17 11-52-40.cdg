@@ -1,0 +1,930 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Soft252Git">
+  <ClassDiagramComponents>
+    <Class name="MedicineRequestWindow" package="soft252git" visibility="public" xPosition="20.0" yPosition="4.0">
+      <Fields>
+        <Field name="med" type="JTextField" visibility="package"/>
+        <Field name="request" type="JButton" visibility="package"/>
+        <Field name="instructions" type="JLabel" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Page" name="origin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Page" package="soft252git" visibility="public" isAbstract="true" xPosition="487.0" yPosition="20.0">
+      <Fields>
+        <Field name="frame" type="JFrame" visibility="package"/>
+        <Field name="exit" type="JButton" visibility="package"/>
+        <Field name="child" type="Page" visibility="package"/>
+        <Field name="info" type="Data" visibility="package"/>
+        <Field name="user" type="User" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="String" name="title"/>
+          <Argument type="Data" name="database"/>
+          <Argument type="Page" name="origin"/>
+          <Argument type="User" name="accessor"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="closeChild" returnType="void" visibility="protected"/>
+        <Method name="setChild" returnType="void" visibility="protected">
+          <Argument type="Page" name="target"/>
+        </Method>
+        <Method name="actionPerformed" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PatientRatingsVeiwer" package="soft252git" visibility="public" xPosition="944.0" yPosition="36.0">
+      <Fields>
+        <Field name="newrating" type="JButton" visibility="package"/>
+        <Field name="doctor" type="JTextField" visibility="package"/>
+        <Field name="docLabel" type="JLabel" visibility="package"/>
+        <Field name="ratings" type="Rating[]" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Page" name="origin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="fetchRatings" returnType="void" visibility="private"/>
+        <Method name="addR" returnType="Rating[]" visibility="private">
+          <Argument type="Rating[]" name="list"/>
+          <Argument type="Rating" name="subject"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="private"/>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="NewUser" package="soft252git" visibility="public" xPosition="1365.0" yPosition="4.0">
+      <Fields>
+        <Field name="fnBox" type="JTextField" visibility="package"/>
+        <Field name="fnLabel" type="JLabel" visibility="package"/>
+        <Field name="Publish" type="JButton" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="Page" name="origin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Feedback" package="soft252git" visibility="public" xPosition="1823.0" yPosition="1408.0">
+      <Fields>
+        <Field name="a" type="int" visibility="package"/>
+        <Field name="n" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="String" name="adminID"/>
+          <Argument type="String" name="doctorID"/>
+          <Argument type="String" name="note"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAdmin" returnType="int" visibility="public"/>
+        <Method name="getDoctor" returnType="int" visibility="public"/>
+        <Method name="getNote" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Doctorhome" package="soft252git" visibility="public" xPosition="1634.0" yPosition="4.0">
+      <Fields>
+        <Field name="appointmentsButton" type="JButton" visibility="package"/>
+        <Field name="appointmentsLabel" type="JLabel" visibility="package"/>
+        <Field name="patientBox" type="JTextField" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Pagemanager" name="origin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PrescriptionFill" package="soft252git" visibility="public" xPosition="2095.0" yPosition="4.0">
+      <Fields>
+        <Field name="fill" type="JButton" visibility="package"/>
+        <Field name="ID" type="JTextField" visibility="package"/>
+        <Field name="instructions" type="JLabel" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Page" name="origin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Adminhome" package="soft252git" visibility="public" xPosition="2210.0" yPosition="188.0">
+      <Fields>
+        <Field name="accountButton" type="JButton" visibility="package"/>
+        <Field name="accountLabel" type="JLabel" visibility="package"/>
+        <Field name="parent" type="Pagemanager" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Pagemanager" name="origin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Appointment" package="soft252git" visibility="public" xPosition="1077.0" yPosition="314.0">
+      <Fields>
+        <Field name="y" type="int" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="String" name="patient"/>
+          <Argument type="String" name="doctor"/>
+          <Argument type="String" name="year"/>
+          <Argument type="String" name="month"/>
+          <Argument type="String" name="day"/>
+          <Argument type="String" name="hour"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTime" returnType="int[]" visibility="public"/>
+        <Method name="getPatient" returnType="int" visibility="public"/>
+        <Method name="getDoctor" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DoctorHistoryVeiwer" package="soft252git" visibility="public" xPosition="1337.0" yPosition="1391.0">
+      <Fields>
+        <Field name="back" type="JButton" visibility="package"/>
+        <Field name="history" type="History[]" visibility="package"/>
+        <Field name="patient" type="User" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Page" name="origin"/>
+          <Argument type="User" name="p"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="fetchHistory" returnType="void" visibility="private"/>
+        <Method name="add" returnType="History[]" visibility="private">
+          <Argument type="History[]" name="list"/>
+          <Argument type="History" name="subject"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="protected"/>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PatientPrescriptionVeiwer" package="soft252git" visibility="public" xPosition="1662.0" yPosition="301.0">
+      <Fields>
+        <Field name="prescriptions" type="Prescription[]" visibility="package"/>
+        <Field name="back" type="JButton" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Page" name="origin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="fetchPrescriptions" returnType="void" visibility="private"/>
+        <Method name="update" returnType="void" visibility="private"/>
+        <Method name="add" returnType="Prescription[]" visibility="private">
+          <Argument type="Prescription[]" name="list"/>
+          <Argument type="Prescription" name="subject"/>
+        </Method>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MedStockVeiwer" package="soft252git" visibility="public" xPosition="38.0" yPosition="529.0">
+      <Fields>
+        <Field name="cancel" type="JButton" visibility="package"/>
+        <Field name="increases" type="JButton[]" visibility="package"/>
+        <Field name="panel1" type="JPanel" visibility="package"/>
+        <Field name="meds" type="Medicine[]" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Page" name="origin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addB" returnType="JButton[]" visibility="private">
+          <Argument type="JButton[]" name="list"/>
+          <Argument type="JButton" name="subject"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="private"/>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Soft252Git" package="soft252git" visibility="public" xPosition="1414.0" yPosition="188.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AppointmentRequester" package="soft252git" visibility="public" xPosition="1220.0" yPosition="499.0">
+      <Fields>
+        <Field name="minHour" type="JLabel" visibility="package"/>
+        <Field name="doctor" type="JTextField" visibility="package"/>
+        <Field name="minValue" type="int[]" visibility="package"/>
+        <Field name="maxValue" type="int[]" visibility="package"/>
+        <Field name="dID" type="int" visibility="package"/>
+        <Field name="publish" type="JButton" visibility="package"/>
+        <Field name="instruction" type="JLabel" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="Page" name="origin"/>
+          <Argument type="User" name="accessor"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="fetchTime" returnType="String[]" visibility="private">
+          <Argument type="int[]" name="date"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="private"/>
+        <Method name="intToString" returnType="String" visibility="private">
+          <Argument type="int[]" name="i"/>
+        </Method>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AccountVeiwer" package="soft252git" visibility="public" xPosition="20.0" yPosition="1497.0">
+      <Fields>
+        <Field name="Cancel" type="JButton" visibility="private"/>
+        <Field name="buttons" type="JButton[]" visibility="private"/>
+        <Field name="panel1" type="JPanel" visibility="private"/>
+        <Field name="users" type="User[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="Page" name="origin"/>
+          <Argument type="User" name="accessor"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="fetchUsers" returnType="void" visibility="private"/>
+        <Method name="addU" returnType="User[]" visibility="private">
+          <Argument type="User[]" name="list"/>
+          <Argument type="User" name="subject"/>
+        </Method>
+        <Method name="addB" returnType="JButton[]" visibility="private">
+          <Argument type="JButton[]" name="list"/>
+          <Argument type="JButton" name="subject"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="private"/>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Prescription" package="soft252git" visibility="public" xPosition="2126.0" yPosition="362.0">
+      <Fields>
+        <Field name="p" type="int" visibility="package"/>
+        <Field name="m" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="String" name="prescriptionID"/>
+          <Argument type="String" name="patientID"/>
+          <Argument type="String" name="medicine"/>
+          <Argument type="String" name="dose"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getID" returnType="int" visibility="public"/>
+        <Method name="getPatient" returnType="int" visibility="public"/>
+        <Method name="getDose" returnType="int" visibility="public"/>
+        <Method name="getMedicine" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="User" package="soft252git" visibility="public" xPosition="449.0" yPosition="1310.0">
+      <Fields>
+        <Field name="fn" type="String" visibility="private"/>
+        <Field name="id" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="String" name="firstName"/>
+          <Argument type="String" name="lastName"/>
+          <Argument type="String" name="address"/>
+          <Argument type="String" name="age"/>
+          <Argument type="String" name="gender"/>
+          <Argument type="String" name="type"/>
+          <Argument type="String" name="ID"/>
+          <Argument type="String" name="passWord"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFirstName" returnType="String" visibility="public"/>
+        <Method name="getLastName" returnType="String" visibility="public"/>
+        <Method name="getType" returnType="String" visibility="public"/>
+        <Method name="getID" returnType="int" visibility="public"/>
+        <Method name="getPassWord" returnType="String" visibility="public"/>
+        <Method name="getAdress" returnType="String" visibility="public"/>
+        <Method name="getAge" returnType="int" visibility="public"/>
+        <Method name="getGender" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Login" package="soft252git" visibility="public" xPosition="1052.0" yPosition="1081.0">
+      <Fields>
+        <Field name="userName" type="JTextField" visibility="package"/>
+        <Field name="password" type="JPasswordField" visibility="package"/>
+        <Field name="submit" type="JButton" visibility="package"/>
+        <Field name="messageLabel" type="JLabel" visibility="package"/>
+        <Field name="users" type="User[]" visibility="package"/>
+        <Field name="parent" type="Pagemanager" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="Pagemanager" name="p"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AppointmentMaker" package="soft252git" visibility="public" xPosition="1414.0" yPosition="794.0">
+      <Fields>
+        <Field name="cancelButton" type="JButton" visibility="package"/>
+        <Field name="panel1" type="JPanel" visibility="package"/>
+        <Field name="ts" type="Integer[][]" visibility="package"/>
+        <Field name="appointments" type="Appointment[]" visibility="package"/>
+        <Field name="selects" type="JButton[]" visibility="package"/>
+        <Field name="index" type="Integer" visibility="package"/>
+        <Field name="startAndend" type="String[]" visibility="package"/>
+        <Field name="doctor" type="String" visibility="package"/>
+        <Field name="patient" type="int" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Page" name="origin"/>
+          <Argument type="Request" name="request"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toInt" returnType="Integer[]" visibility="private">
+          <Argument type="String" name="input"/>
+        </Method>
+        <Method name="addB" returnType="JButton[]" visibility="private">
+          <Argument type="JButton[]" name="list"/>
+          <Argument type="JButton" name="subject"/>
+        </Method>
+        <Method name="addS" returnType="Appointment[]" visibility="private">
+          <Argument type="Appointment[]" name="list"/>
+          <Argument type="Appointment" name="subject"/>
+        </Method>
+        <Method name="addT" returnType="Integer[][]" visibility="private">
+          <Argument type="Integer[][]" name="list"/>
+          <Argument type="Integer[]" name="subject"/>
+        </Method>
+        <Method name="compInt" returnType="boolean" visibility="private">
+          <Argument type="Integer[]" name="base"/>
+          <Argument type="int[]" name="subject"/>
+        </Method>
+        <Method name="fetchAppointments" returnType="Appointment[]" visibility="private">
+          <Argument type="String" name="minTime"/>
+          <Argument type="String" name="maxTime"/>
+        </Method>
+        <Method name="diff" returnType="int" visibility="private">
+          <Argument type="Integer[]" name="min"/>
+          <Argument type="Integer[]" name="max"/>
+        </Method>
+        <Method name="fetchTimes" returnType="Integer[][]" visibility="private">
+          <Argument type="Appointment[]" name="priors"/>
+          <Argument type="String" name="minTime"/>
+          <Argument type="String" name="maxTime"/>
+        </Method>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PatientAppointmentsVeiwer" package="soft252git" visibility="public" xPosition="487.0" yPosition="533.0">
+      <Fields>
+        <Field name="makeAppointment" type="JButton" visibility="package"/>
+        <Field name="appointments" type="Appointment[]" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Page" name="origin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="fetchAppointments" returnType="void" visibility="private"/>
+        <Method name="add" returnType="Appointment[]" visibility="private">
+          <Argument type="Appointment[]" name="list"/>
+          <Argument type="Appointment" name="subject"/>
+        </Method>
+        <Method name="fetchTime" returnType="String" visibility="private">
+          <Argument type="int[]" name="date"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="private"/>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SecretaryHome" package="soft252git" visibility="public" xPosition="299.0" yPosition="782.0">
+      <Fields>
+        <Field name="fillButton" type="JButton" visibility="package"/>
+        <Field name="panel1" type="JPanel" visibility="package"/>
+        <Field name="requests" type="Request[]" visibility="package"/>
+        <Field name="approves" type="JButton[]" visibility="package"/>
+        <Field name="index" type="Integer" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Pagemanager" name="origin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="update" returnType="void" visibility="private"/>
+        <Method name="addB" returnType="JButton[]" visibility="private">
+          <Argument type="JButton[]" name="list"/>
+          <Argument type="JButton" name="subject"/>
+        </Method>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Data" package="soft252git" visibility="public" isFinal="true" xPosition="2281.0" yPosition="585.0">
+      <Fields>
+        <Field name="freeInt" type="int" visibility="package"/>
+        <Field name="rawLine" type="String" visibility="package"/>
+        <Field name="line" type="String[]" visibility="package"/>
+        <Field name="dataFile" type="File" visibility="private"/>
+        <Field name="userData" type="User[]" visibility="private"/>
+        <Field name="requestData" type="Request[]" visibility="private"/>
+        <Field name="ratingData" type="Rating[]" visibility="private"/>
+        <Field name="appointmentData" type="Appointment[]" visibility="private"/>
+        <Field name="patientData" type="History[]" visibility="private"/>
+        <Field name="prescriptionData" type="Prescription[]" visibility="private"/>
+        <Field name="medicineData" type="Medicine[]" visibility="private"/>
+        <Field name="feedbackData" type="Feedback[]" visibility="private"/>
+        <Field name="reader" type="BufferedReader" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package"/>
+      </Constructors>
+      <Methods>
+        <Method name="getUsers" returnType="User[]" visibility="public"/>
+        <Method name="getRequests" returnType="Request[]" visibility="public"/>
+        <Method name="getRatings" returnType="Rating[]" visibility="public"/>
+        <Method name="getAppointments" returnType="Appointment[]" visibility="public"/>
+        <Method name="getPatientHistory" returnType="History[]" visibility="public"/>
+        <Method name="getPrescriptions" returnType="Prescription[]" visibility="public"/>
+        <Method name="getMedStocks" returnType="Medicine[]" visibility="public"/>
+        <Method name="getFeedback" returnType="Feedback[]" visibility="public"/>
+        <Method name="addUser" returnType="void" visibility="public">
+          <Argument type="User" name="user"/>
+        </Method>
+        <Method name="addRequest" returnType="void" visibility="public">
+          <Argument type="Request" name="request"/>
+        </Method>
+        <Method name="addRating" returnType="void" visibility="public">
+          <Argument type="Rating" name="rating"/>
+        </Method>
+        <Method name="addAppointment" returnType="void" visibility="public">
+          <Argument type="Appointment" name="appointment"/>
+        </Method>
+        <Method name="addPatientHistory" returnType="void" visibility="public">
+          <Argument type="History" name="history"/>
+        </Method>
+        <Method name="addPrescription" returnType="void" visibility="public">
+          <Argument type="Prescription" name="prescription"/>
+        </Method>
+        <Method name="addMedStocks" returnType="void" visibility="public">
+          <Argument type="Medicine" name="medicine"/>
+        </Method>
+        <Method name="addFeedback" returnType="void" visibility="public">
+          <Argument type="Feedback" name="feedback"/>
+        </Method>
+        <Method name="removeUser" returnType="void" visibility="public">
+          <Argument type="int" name="target"/>
+        </Method>
+        <Method name="removeRequest" returnType="void" visibility="public">
+          <Argument type="int" name="target"/>
+        </Method>
+        <Method name="removePrescription" returnType="void" visibility="public">
+          <Argument type="int" name="target"/>
+        </Method>
+        <Method name="searchUsers" returnType="User" visibility="public">
+          <Argument type="int" name="target"/>
+        </Method>
+        <Method name="searchUsers" returnType="User" visibility="public">
+          <Argument type="String" name="target"/>
+        </Method>
+        <Method name="lowerMeds" returnType="void" visibility="public">
+          <Argument type="String" name="med"/>
+          <Argument type="int" name="amount"/>
+        </Method>
+        <Method name="raiseMeds" returnType="void" visibility="public">
+          <Argument type="String" name="med"/>
+          <Argument type="int" name="amount"/>
+        </Method>
+        <Method name="close" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="History" package="soft252git" visibility="public" xPosition="2018.0" yPosition="1640.0">
+      <Fields>
+        <Field name="p" type="int" visibility="package"/>
+        <Field name="n" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="String" name="patientID"/>
+          <Argument type="String" name="doctorID"/>
+          <Argument type="String" name="note"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPatientID" returnType="int" visibility="public"/>
+        <Method name="getDoctorID" returnType="int" visibility="public"/>
+        <Method name="getNote" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="RatingsVeiwer" package="soft252git" visibility="public" xPosition="299.0" yPosition="1014.0">
+      <Fields>
+        <Field name="Back" type="JButton" visibility="package"/>
+        <Field name="docs" type="User[]" visibility="package"/>
+        <Field name="ratings" type="Rating[]" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="Page" name="origin"/>
+          <Argument type="User" name="accessor"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="update" returnType="void" visibility="private"/>
+        <Method name="addU" returnType="User[]" visibility="private">
+          <Argument type="User[]" name="list"/>
+          <Argument type="User" name="subject"/>
+        </Method>
+        <Method name="addR" returnType="Rating[]" visibility="private">
+          <Argument type="Rating[]" name="list"/>
+          <Argument type="Rating" name="subject"/>
+        </Method>
+        <Method name="fetchDocs" returnType="void" visibility="private"/>
+        <Method name="fetchRatings" returnType="void" visibility="private"/>
+        <Method name="searchDocs" returnType="User" visibility="private">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="NotesWriter" package="soft252git" visibility="public" xPosition="14.0" yPosition="348.0">
+      <Fields>
+        <Field name="Notes" type="JTextField" visibility="package"/>
+        <Field name="Accept" type="JButton" visibility="package"/>
+        <Field name="patient" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="Page" name="origin"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="String" name="p"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DoctorAppointmentsVeiwer" package="soft252git" visibility="public" xPosition="752.0" yPosition="756.0">
+      <Fields>
+        <Field name="makeAppointment" type="JButton" visibility="package"/>
+        <Field name="appointments" type="Appointment[]" visibility="package"/>
+        <Field name="index" type="Integer" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="Page" name="origin"/>
+          <Argument type="User" name="accessor"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="fetchAppointments" returnType="void" visibility="private"/>
+        <Method name="fetchTime" returnType="String" visibility="private">
+          <Argument type="int[]" name="date"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="private"/>
+        <Method name="add" returnType="Appointment[]" visibility="private">
+          <Argument type="Appointment[]" name="list"/>
+          <Argument type="Appointment" name="subject"/>
+        </Method>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Pagemanager" package="soft252git" visibility="public" xPosition="1351.0" yPosition="1213.0">
+      <Fields>
+        <Field name="info" type="Data" visibility="package"/>
+        <Field name="user" type="User" visibility="package"/>
+        <Field name="child" type="Page" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setUser" returnType="void" visibility="public">
+          <Argument type="User" name="u"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Rating" package="soft252git" visibility="public" xPosition="684.0" yPosition="1032.0">
+      <Fields>
+        <Field name="w" type="int" visibility="package"/>
+        <Field name="c" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="String" name="writerID"/>
+          <Argument type="String" name="subjectID"/>
+          <Argument type="String" name="comment"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getWriter" returnType="int" visibility="public"/>
+        <Method name="getSubject" returnType="int" visibility="public"/>
+        <Method name="getComment" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="RatingMaker" package="soft252git" visibility="public" xPosition="26.0" yPosition="1280.0">
+      <Fields>
+        <Field name="target" type="String" visibility="package"/>
+        <Field name="doctorLabel" type="JLabel" visibility="package"/>
+        <Field name="doctorField" type="JTextField" visibility="package"/>
+        <Field name="publish" type="JButton" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Page" name="origin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="find" returnType="String" visibility="private">
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PatientHistoryVeiwer" package="soft252git" visibility="public" xPosition="1551.0" yPosition="1623.0">
+      <Fields>
+        <Field name="history" type="History[]" visibility="package"/>
+        <Field name="Back" type="JButton" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Page" name="origin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="fetchHistory" returnType="void" visibility="private"/>
+        <Method name="add" returnType="History[]" visibility="private">
+          <Argument type="History[]" name="list"/>
+          <Argument type="History" name="subject"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="private"/>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TerminationWindow" package="soft252git" visibility="public" xPosition="20.0" yPosition="184.0">
+      <Fields>
+        <Field name="accept" type="JButton" visibility="package"/>
+        <Field name="message" type="JLabel" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Page" name="origin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Medicine" package="soft252git" visibility="public" xPosition="2380.0" yPosition="1640.0">
+      <Fields>
+        <Field name="m" type="String" visibility="package"/>
+        <Field name="s" type="int" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="String" name="med"/>
+          <Argument type="int" name="supply"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMed" returnType="String" visibility="public"/>
+        <Method name="getSupply" returnType="int" visibility="public"/>
+        <Method name="setSupply" returnType="void" visibility="public">
+          <Argument type="int" name="value"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Patienthome" package="soft252git" visibility="public" xPosition="1038.0" yPosition="1640.0">
+      <Fields>
+        <Field name="ratingsButton" type="JButton" visibility="package"/>
+        <Field name="ratingsLabel" type="JLabel" visibility="package"/>
+        <Field name="panel" type="JPanel" visibility="package"/>
+        <Field name="parent" type="Pagemanager" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Pagemanager" name="origin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DoctorPrescriptionWriter" package="soft252git" visibility="public" xPosition="467.0" yPosition="1623.0">
+      <Fields>
+        <Field name="med" type="JTextField" visibility="package"/>
+        <Field name="Publish" type="JButton" visibility="package"/>
+        <Field name="instruction" type="JLabel" visibility="package"/>
+        <Field name="patient" type="User" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Data" name="database"/>
+          <Argument type="User" name="accessor"/>
+          <Argument type="Page" name="origin"/>
+          <Argument type="User" name="p"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="action" returnType="void" visibility="protected">
+          <Argument type="ActionEvent" name="ae"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Request" package="soft252git" visibility="public" xPosition="2187.0" yPosition="1377.0">
+      <Fields>
+        <Field name="u" type="int" visibility="package"/>
+        <Field name="t" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="String" name="userId"/>
+          <Argument type="String" name="type"/>
+          <Argument type="String" name="details"/>
+          <Argument type="String" name="requestID"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getUserID" returnType="int" visibility="public"/>
+        <Method name="getType" returnType="String" visibility="public"/>
+        <Method name="getDetails" returnType="String" visibility="public"/>
+        <Method name="getRequestID" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="soft252git.DoctorAppointmentsVeiwer" target="soft252git.Page"/>
+    <UseRelation source="soft252git.PatientPrescriptionVeiwer" target="soft252git.Prescription" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.Data" target="soft252git.User" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="soft252git.AppointmentMaker" target="soft252git.Page"/>
+    <IsRelation name="is" source="soft252git.Doctorhome" target="soft252git.Page"/>
+    <IsRelation name="is" source="soft252git.AppointmentRequester" target="soft252git.Page"/>
+    <HasRelation name="parent" source="soft252git.Login" target="soft252git.Pagemanager" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="soft252git.MedStockVeiwer" target="soft252git.Page"/>
+    <IsRelation name="is" source="soft252git.DoctorHistoryVeiwer" target="soft252git.Page"/>
+    <IsRelation name="is" source="soft252git.MedicineRequestWindow" target="soft252git.Page"/>
+    <HasRelation name="parent" source="soft252git.Patienthome" target="soft252git.Pagemanager" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="soft252git.Patienthome" target="soft252git.Page"/>
+    <IsRelation name="is" source="soft252git.Adminhome" target="soft252git.Page"/>
+    <HasRelation name="user" source="soft252git.Pagemanager" target="soft252git.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.Data" target="soft252git.Feedback" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.DoctorAppointmentsVeiwer" target="soft252git.Appointment" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.DoctorHistoryVeiwer" target="soft252git.History" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="soft252git.PatientAppointmentsVeiwer" target="soft252git.Page"/>
+    <HasRelation name="child" source="soft252git.Pagemanager" target="soft252git.Page" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.Pagemanager" target="soft252git.User" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.Page" target="soft252git.Page" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="user" source="soft252git.Page" target="soft252git.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="soft252git.PatientRatingsVeiwer" target="soft252git.Page"/>
+    <UseRelation source="soft252git.RatingsVeiwer" target="soft252git.User" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="patient" source="soft252git.DoctorHistoryVeiwer" target="soft252git.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="soft252git.NotesWriter" target="soft252git.Page"/>
+    <IsRelation name="is" source="soft252git.AccountVeiwer" target="soft252git.Page"/>
+    <HasRelation name="child" source="soft252git.Page" target="soft252git.Page" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="soft252git.PatientPrescriptionVeiwer" target="soft252git.Page"/>
+    <UseRelation source="soft252git.Data" target="soft252git.Request" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.Data" target="soft252git.Prescription" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="soft252git.DoctorPrescriptionWriter" target="soft252git.Page"/>
+    <UseRelation source="soft252git.Data" target="soft252git.Rating" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.PatientAppointmentsVeiwer" target="soft252git.Appointment" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.AppointmentMaker" target="soft252git.Appointment" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.PatientHistoryVeiwer" target="soft252git.History" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.Data" target="soft252git.History" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="soft252git.RatingsVeiwer" target="soft252git.Page"/>
+    <UseRelation source="soft252git.RatingsVeiwer" target="soft252git.Rating" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="soft252git.PrescriptionFill" target="soft252git.Page"/>
+    <IsRelation name="is" source="soft252git.PatientHistoryVeiwer" target="soft252git.Page"/>
+    <HasRelation name="info" source="soft252git.Pagemanager" target="soft252git.Data" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="parent" source="soft252git.Adminhome" target="soft252git.Pagemanager" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.Data" target="soft252git.Appointment" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="soft252git.SecretaryHome" target="soft252git.Page"/>
+    <IsRelation name="is" source="soft252git.TerminationWindow" target="soft252git.Page"/>
+    <IsRelation name="is" source="soft252git.NewUser" target="soft252git.Page"/>
+    <HasRelation name="info" source="soft252git.Page" target="soft252git.Data" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.Data" target="soft252git.Medicine" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.PatientRatingsVeiwer" target="soft252git.Rating" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="soft252git.RatingMaker" target="soft252git.Page"/>
+    <HasRelation name="patient" source="soft252git.DoctorPrescriptionWriter" target="soft252git.User" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252git.AccountVeiwer" target="soft252git.User" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="soft252git.Login" target="soft252git.Page"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
