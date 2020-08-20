@@ -43,7 +43,7 @@ public class PrescriptionTest {
     @Test
     public void testGetID() {
         System.out.println("getID");
-        Prescription instance = new Prescription("0","0","0","0");
+        Prescription instance = new Prescription("0","0","0","0","0");
         int expResult = 0;
         int result = instance.getID();
         assertEquals(expResult, result);
@@ -55,7 +55,7 @@ public class PrescriptionTest {
     @Test
     public void testGetPatient() {
         System.out.println("getPatient");
-        Prescription instance = new Prescription("0","0","0","0");
+        Prescription instance = new Prescription("0","0","0","0","0");
         int expResult = 0;
         int result = instance.getPatient();
         assertEquals(expResult, result);
@@ -67,7 +67,7 @@ public class PrescriptionTest {
     @Test
     public void testGetDose() {
         System.out.println("getDose");
-        Prescription instance = new Prescription("0","0","0","0");
+        Prescription instance = new Prescription("0","0","0","0","0");
         int expResult = 0;
         int result = instance.getDose();
         assertEquals(expResult, result);
@@ -79,7 +79,7 @@ public class PrescriptionTest {
     @Test
     public void testGetMedicine() {
         System.out.println("getMedicine");
-        Prescription instance = new Prescription("0","0","0","0");
+        Prescription instance = new Prescription("0","0","0","0","0");
         String expResult = "0";
         String result = instance.getMedicine();
         assertEquals(expResult, result);

@@ -59,7 +59,7 @@ public class SecretaryHome extends Page{
             catch(Exception e){
                 name = "New User";
             }
-            panel1.add(new JLabel(name + " " + request.getType()));
+            panel1.add(new JLabel(name + " " + request.getType() + request.getDetails()));
             JButton accept = new JButton("Accept");
             accept.addActionListener(this);
             approves = addB(approves,accept);
@@ -105,27 +105,31 @@ public class SecretaryHome extends Page{
         index = 0;
         for(JButton aButton : approves){
             if(ae.getSource() == aButton){
-                if(requests[index].getType().equals("c")){
-                    String[] userData = requests[index].getDetails().split("-");
-                    info.addUser(new User(userData[0],userData[1],userData[2],userData[3],userData[4],userData[5],userData[6],userData[7]));
-                    info.removeRequest(requests[index].getRequestID());
-                    update();
-                }
-                else if(requests[index].getType().equals("a")){
-                    child = new AppointmentMaker(info,user,this,requests[index]);
-                    info.removeRequest(requests[index].getRequestID());
-                    update();
-                }
-                else if(requests[index].getType().equals("t")){
-                    info.removeUser(requests[index].getUserID());
-                    info.removeRequest(requests[index].getRequestID());
-                    update();
-                }
-                else if(requests[index].getType().equals("m")){
-                    Medicine newMed = new Medicine(requests[index].getDetails(),0); 
-                    info.addMedStocks(newMed);
-                    info.removeRequest(requests[index].getRequestID());
-                    update();
+                switch (requests[index].getType()) {
+                    case "c":
+                        String[] userData = requests[index].getDetails().split("-");
+                        info.addUser(new User(userData[0],userData[1],userData[2],userData[3],userData[4],userData[5],userData[6],userData[7]));
+                        info.removeRequest(requests[index].getRequestID());
+                        update();
+                        break;
+                    case "a":
+                        child = new AppointmentMaker(info,user,this,requests[index]);
+                        info.removeRequest(requests[index].getRequestID());
+                        update();
+                        break;
+                    case "t":
+                        info.removeUser(requests[index].getUserID());
+                        info.removeRequest(requests[index].getRequestID());
+                        update();
+                        break;
+                    case "m":
+                        Medicine newMed = new Medicine(requests[index].getDetails(),0);
+                        info.addMedStocks(newMed);
+                        info.removeRequest(requests[index].getRequestID());
+                        update();
+                        break;
+                    default:
+                        break;
                 }
                 
             }

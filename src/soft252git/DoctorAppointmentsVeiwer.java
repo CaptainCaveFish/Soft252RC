@@ -128,7 +128,7 @@ public class DoctorAppointmentsVeiwer extends Page{
     @Override
     protected void action(ActionEvent ae){
         if(ae.getSource() == makeAppointment){
-            child = new AppointmentRequester(info,this,user);
+            child = new DoctorAppointmentMaker(info,this,user);
         }
         if(ae.getSource() == back){
             parent.closeChild();

@@ -31,7 +31,7 @@ public abstract class Page implements ActionListener{
         frame = new JFrame(title);
         frame.setSize(500, 500);
         frame.setLayout(null);
-        exit = new JButton("X");
+        exit = new JButton("Exit");
         exit.addActionListener(this);
         exit.setBounds(0, 0, 50, 50);
         frame.add(exit);

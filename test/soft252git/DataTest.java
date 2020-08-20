@@ -95,7 +95,7 @@ public class DataTest {
     @Test
     public void testAddPrescription() {
         System.out.println("addPrescription");
-        Prescription prescription = new Prescription("0","0","0","0");
+        Prescription prescription = new Prescription("0","0","0","0","0");
         Data instance = new Data();
         instance.addPrescription(prescription);
     }
@@ -153,7 +153,7 @@ public class DataTest {
         System.out.println("removePrescription");
         int target = 0;
         Data instance = new Data();
-        instance.addPrescription(new Prescription("0","0","0","0"));
+        instance.addPrescription(new Prescription("0","0","0","0","0"));
         instance.removePrescription(target);
     }
 
@@ -176,10 +176,11 @@ public class DataTest {
     @Test
     public void testSearchUsers_String() {
         System.out.println("searchUsers");
-        String target = "Doe";
+        String targetf = "John";
+        String targetl = "Doe";
         Data instance = new Data();
         String expResult = "John";
-        User result = instance.searchUsers(target);
+        User result = instance.searchUsers(targetf,targetl);
         assertEquals(expResult, result.getFirstName());
     }
 

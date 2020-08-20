@@ -54,7 +54,7 @@ public class DoctorPrescriptionWriter extends Page{
             String dosage = dose.getText();
             String ID = Integer.toString(newID);
             String patientID = Integer.toString(patient.getID());
-            info.addPrescription(new Prescription(ID,patientID,medication,dosage));
+            info.addPrescription(new Prescription(ID,patientID,medication,dosage,Integer.toString(user.getID())));
             parent.closeChild();
             frame.setVisible(false);
             

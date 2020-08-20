@@ -25,7 +25,7 @@ public class NotesWriterTest {
     @Test
     public void testconstructor(){
         Data data = new Data();
-        NotesWriter subject = new NotesWriter(data,null,null,"");
+        NotesWriter subject = new NotesWriter(data,null,null,null);
         assertNotNull(subject);
     }
     

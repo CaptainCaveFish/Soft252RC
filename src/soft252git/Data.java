@@ -77,7 +77,7 @@ public final class Data {
                     prescriptionData = new Prescription[0];
                     while (rawLine.equals("**Medicine**") == false){
                         line = rawLine.split(",");
-                        addPrescription(new Prescription(line[0],line[1],line[2],line[3]));
+                        addPrescription(new Prescription(line[0],line[1],line[2],line[3],line[4]));
                         rawLine = reader.readLine();
                     }
                     rawLine = reader.readLine();
@@ -252,10 +252,10 @@ public final class Data {
         }
         return output;
     }
-    public User searchUsers(String target){
+    public User searchUsers(String firstname, String lastname){
         User output = null;
         for (User u : userData){
-            if (u.getLastName().equals(target)){
+            if (u.getFirstName().equals(firstname) && u.getLastName().equals(lastname)){
                 output = u;
             } 
         }

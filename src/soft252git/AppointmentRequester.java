@@ -14,7 +14,7 @@ import java.awt.*;
 import java.awt.event.*;
 public class AppointmentRequester extends Page{
     JLabel minHour, minDay, minMonth, minYear, maxHour, maxDay, maxMonth, maxYear;
-    JTextField doctor;
+    JTextField firstname,lastname;
     int[] minValue = {0,0,0,2000};
     int[] maxValue = {1,1,1,2000};
     int dID,pID;
@@ -22,10 +22,12 @@ public class AppointmentRequester extends Page{
     JLabel instruction;
     AppointmentRequester(Data database,Page origin,User accessor){
         super("Make appointment",database,origin,accessor);
-        doctor = new JTextField();
-        doctor.setBounds(150, 50, 100, 20);
-        frame.add(doctor);
-        
+        firstname = new JTextField();
+        firstname.setBounds(150, 50, 100, 20);
+        frame.add(firstname);
+        lastname = new JTextField();
+        lastname.setBounds(300, 50, 100, 20);
+        frame.add(lastname);
         upMinHour = new JButton("^");
         upMinHour.addActionListener(this);
         upMinHour.setBounds(50, 70, 20, 20);
@@ -130,8 +132,8 @@ public class AppointmentRequester extends Page{
         cancel.setBounds(300, 400, 50, 20);
         cancel.addActionListener(this);
         frame.add(cancel);
-        instruction = new JLabel("Enter the Doctors last name and your reveiw into the boxes provided");
-        instruction.setBounds(150,300,200,20);
+        instruction = new JLabel("Enter the Patients first and last name:");
+        instruction.setBounds(50,300,300,20);
         frame.add(instruction);
         update();
     }
@@ -141,55 +143,59 @@ public class AppointmentRequester extends Page{
         String hour = Integer.toString(date[0]/2) + ":" + Integer.toString((date[0]%2)*30);
         output[0] = hour;
         String day;
-        if(date[1] == 0){
-            day = "1st";
-        }
-        else if(date[1] == 1){
-            day = "2nd";
-        }
-        else if(date[1] == 2){
-            day = "3rd";
-        }
-        else{
-            day = Integer.toString(date[1]) + "th";
+        switch (date[1]) {
+            case 0:
+                day = "1st";
+                break;
+            case 1:
+                day = "2nd";
+                break;
+            case 2:
+                day = "3rd";
+                break;
+            default:
+                day = Integer.toString(date[1]) + "th";
+                break;
         }
         output[1] = day;
         String month;
-        if(date[2] == 0){
-            month = "January";
-        }
-        else if(date[2] == 1){
-            month = "Feburary";
-        }
-        else if(date[2] == 2){
-            month = "March";
-        }
-        else if(date[2] == 3){
-            month = "April";
-        }
-        else if(date[2] == 4){
-            month = "May";
-        }
-        else if(date[2] == 5){
-            month = "June";
-        }
-        else if(date[2] == 6){
-            month = "July";
-        }
-        else if(date[2] == 7){
-            month = "August";
-        }
-        else if(date[2] == 8){
-            month = "September";
-        }
-        else if(date[2] == 9){
-            month = "October";
-        }
-        else if(date[2] == 10){
-            month = "November";
-        }
-        else{
-            month = "December";
+        switch (date[2]) {
+            case 0:
+                month = "January";
+                break;
+            case 1:
+                month = "Feburary";
+                break;
+            case 2:
+                month = "March";
+                break;
+            case 3:
+                month = "April";
+                break;
+            case 4:
+                month = "May";
+                break;
+            case 5:
+                month = "June";
+                break;
+            case 6:
+                month = "July";
+                break;
+            case 7:
+                month = "August";
+                break;
+            case 8:
+                month = "September";
+                break;
+            case 9:
+                month = "October";
+                break;
+            case 10:
+                month = "November";
+                break;
+            default:
+                month = "December";
+                break;
         }
         output[2] = month;
         output[3] = Integer.toString(date[3]);
@@ -246,19 +252,23 @@ public class AppointmentRequester extends Page{
     @Override
     protected void action(ActionEvent ae){
         if (ae.getSource() == publish){
-            if(user.getType().equals("d")){
-                dID = user.getID();
-                pID = info.searchUsers(doctor.getText()).getID();
-            }
-            else if(user.getType().equals("p")){
-                dID = info.searchUsers(doctor.getText()).getID();
-                pID = user.getID();
-            }
-            int IDnumber = info.getRequests()[info.getRequests().length - 1].getRequestID() + 1;
+            dID = info.searchUsers(firstname.getText(),lastname.getText()).getID();
+            pID = user.getID();
+            Request[] requests = info.getRequests();
+            if(requests.length > 0){
+                int IDnumber = requests[requests.length - 1].getRequestID() + 1;
                 String details = intToString(minValue) + "-" + intToString(maxValue) +  "*" + Integer.toString(dID);
                 info.addRequest(new Request(Integer.toString(pID),"a",details,Integer.toString(IDnumber)));
                 parent.closeChild();
                 frame.setVisible(false);
+            }
+            else{
+                int IDnumber = 0;
+                String details = intToString(minValue) + "-" + intToString(maxValue) +  "*" + Integer.toString(dID);
+                info.addRequest(new Request(Integer.toString(pID),"a",details,Integer.toString(IDnumber)));
+                parent.closeChild();
+                frame.setVisible(false);
+            }
         }
         else if(ae.getSource() == cancel){
            parent.closeChild();
